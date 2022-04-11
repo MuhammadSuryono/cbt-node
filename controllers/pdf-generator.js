@@ -27,7 +27,7 @@ const generate = async (outputFileName, data) => {
         await page.setContent(content);
         await page.emulateMediaType('screen')
         await page.pdf({
-            path: `output/${outputFileName}.pdf`,
+            path: path.join(process.cwd(), 'output', `${outputFileName}.pdf`),
             format: 'letter',
             printBackground: true
         });
