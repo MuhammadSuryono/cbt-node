@@ -58,7 +58,7 @@ const sertificate = async (req, res, next) => {
         }
         await pdf.generate(registerNumber, data)
 
-        const file = fs.readFileSync(`./output/${user.number_of_register}.pdf`)
+        const file = fs.readFileSync(`${user.number_of_register}.pdf`)
         res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', `attachment; filename=${user.number_of_register}.pdf`);
         res.send(file)
