@@ -23,11 +23,12 @@ const generate = async (outputFileName, data) => {
         const page = await browser.newPage();
 
         const content = await compile('main', data)
-
+        console.log(path.join(process.cwd(), 'output', `${outputFileName}.pdf`))
+        console.log(path.join(process.cwd(), '', `${outputFileName}.pdf`))
         await page.setContent(content);
         await page.emulateMediaType('screen')
         await page.pdf({
-            path: path.join(process.cwd(), 'output', `${outputFileName}.pdf`),
+            path: path.join(process.cwd(), '', `${outputFileName}.pdf`),
             format: 'letter',
             printBackground: true
         });
